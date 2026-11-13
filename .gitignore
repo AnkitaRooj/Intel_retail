@@ -64,13 +64,13 @@ JUPYTER NOTEBOOKS & DATA SCIENCE
 
 Local Data & Vector Stores (Keep large raw datasets out of Git)
 
-data/
+# data/
 raw_data/
 processed_data/
 *.csv
 *.parquet
 *.pdf
-*.docx
+# *.docx
 *.xlsx
 *.db
 *.sqlite
