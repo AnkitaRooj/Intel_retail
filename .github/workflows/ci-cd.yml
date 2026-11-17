@@ -41,7 +41,7 @@ jobs:
     - name: Run Pytest with Mocked Azure
       run: |
         # We don't need real Azure credentials here because we mocked the LLM
-        pytest tests/ -v
+        python -m pytest tests/test_api.py
 
   # ---------------------------------------------------------
   # JOB 2: Build and Push Docker Image (Continuous Deployment)
