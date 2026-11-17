@@ -37,8 +37,13 @@ jobs:
         ruff check scripts/ tests/ --select=E9,F63,F7,F82 --output-format=github
         # Exit non-zero if there are any other linting issues (optional, but good for strictness)
         ruff check scripts/ tests/ --exit-zero
-
+    
+    
     - name: Run Pytest with Mocked Azure
+      env:
+        AZURE_OPENAI_ENDPOINT: "${{ secrets.AZURE_OPENAI_ENDPOINT }}"
+        AZURE_OPENAI_API_KEY: "${{ secrets.AZURE_OPENAI_API_KEY }}"
+        AZURE_OPENAI_GPT4O_DEPLOYMENT: "${{ secrets.AZURE_OPENAI_GPT4O_DEPLOYMENT }}"
       run: |
         # We don't need real Azure credentials here because we mocked the LLM
         python -m pytest tests/test_api.py
