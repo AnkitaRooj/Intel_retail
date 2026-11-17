@@ -41,10 +41,19 @@ jobs:
     
     - name: Run Pytest with Mocked Azure
       env:
-        AZURE_OPENAI_ENDPOINT: "${{ secrets.AZURE_OPENAI_ENDPOINT }}"
-        AZURE_OPENAI_API_KEY: "${{ secrets.AZURE_OPENAI_API_KEY }}"
-        AZURE_OPENAI_GPT4O_DEPLOYMENT: "${{ secrets.AZURE_OPENAI_GPT4O_DEPLOYMENT }}"
-        AZURE_OPENAI_API_VERSION: "${{ secrets.AZURE_OPENAI_API_VERSION }}"
+        AZURE_OPENAI_ENDPOINT: ${{ secrets.AZURE_OPENAI_ENDPOINT }}
+        AZURE_OPENAI_API_KEY: ${{ secrets.AZURE_OPENAI_API_KEY }}
+        AZURE_OPENAI_GPT4O_DEPLOYMENT: ${{ secrets.AZURE_OPENAI_GPT4O_DEPLOYMENT }}
+        AZURE_OPENAI_API_VERSION: ${{ secrets.AZURE_OPENAI_API_VERSION }}
+        AZURE_SEARCH_ENDPOINT: ${{ secrets.AZURE_SEARCH_ENDPOINT }}
+        AZURE_SEARCH_ADMIN_KEY: ${{ secrets.AZURE_SEARCH_ADMIN_KEY }}
+        AZURE_SEARCH_INDEX_NAME: ${{ secrets.AZURE_SEARCH_INDEX_NAME }}
+        AZURE_DI_ENDPOINT: ${{ secrets.AZURE_DI_ENDPOINT }}
+        AZURE_DI_KEY: ${{ secrets.AZURE_DI_KEY }}
+        AZURE_STORAGE_CONNECTION_STRING: ${{ secrets.AZURE_STORAGE_CONNECTION_STRING }}
+        AZURE_OPENAI_RESOURCE_NAME: ${{ secrets.AZURE_OPENAI_RESOURCE_NAME }}
+        AZURE_SEARCH_SERVICE_NAME: ${{ secrets.AZURE_SEARCH_SERVICE_NAME }}
+        AZURE_RESOURCE_GROUP: ${{ secrets.AZURE_RESOURCE_GROUP }}
       run: |
         # We don't need real Azure credentials here because we mocked the LLM
         python -m pytest tests/test_api.py
