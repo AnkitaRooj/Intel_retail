@@ -44,6 +44,7 @@ jobs:
         AZURE_OPENAI_ENDPOINT: "${{ secrets.AZURE_OPENAI_ENDPOINT }}"
         AZURE_OPENAI_API_KEY: "${{ secrets.AZURE_OPENAI_API_KEY }}"
         AZURE_OPENAI_GPT4O_DEPLOYMENT: "${{ secrets.AZURE_OPENAI_GPT4O_DEPLOYMENT }}"
+        AZURE_OPENAI_API_VERSION: "${{ secrets.AZURE_OPENAI_API_VERSION }}"
       run: |
         # We don't need real Azure credentials here because we mocked the LLM
         python -m pytest tests/test_api.py
